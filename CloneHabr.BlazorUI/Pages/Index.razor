@@ -1,0 +1,25 @@
+﻿@page "/"
+@page "/home"
+@page "/main"
+@page "/index"
+
+@inject UserInfo userInfo
+
+<PageTitle>Главная</PageTitle>
+<div class="row justify-content-center">
+</div>
+
+<div class="col-md-10">
+    <ArticleContainer themeNumber="0" />
+
+    <SurveyPrompt Title="Ну и как тебе Блейзор?" />
+</div>
+
+@code{
+
+    protected override void OnInitialized()
+    {
+        Console.WriteLine($"Index OnInitialized******************: {userInfo.LoginName}\n{userInfo.SessionId}\n{userInfo.UserId}\n{userInfo.Token}");
+    }
+
+}

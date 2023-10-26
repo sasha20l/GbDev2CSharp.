@@ -1,0 +1,24 @@
+﻿@inject UserInfo userInfo
+
+@if (!userInfo.IsLoggedIn)
+{
+    <div class="nav-item col-5">
+        <NavLink class="nav-link" href="login">
+            <span>Авторизуйтесь для комментариев</span>
+        </NavLink>
+    </div>
+}
+
+@if (comments is not null)
+{
+    foreach (var item in comments)
+    {
+        <Comment commentDto="item" />
+    }
+}
+
+@code {
+    [Parameter]
+    public List<CommentDto>? comments { get; set; }
+
+}
